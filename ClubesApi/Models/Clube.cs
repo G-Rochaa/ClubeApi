@@ -4,6 +4,7 @@ namespace ClubesApi.Models;
 
 public class Clube
 {
+    public int Id { get; set; }     //ID não é required pois o sistema passará ele, não o usuário!
 
     [Required(ErrorMessage = "O nome é obrigatório!")] 
     public string Nome { get; set; }

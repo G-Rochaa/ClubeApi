@@ -25,8 +25,10 @@ public class ClubeController : ControllerBase
         return clubes;
     }
 
-    
-
-  
+    [HttpGet("{id}")]                                                //Para nosso sistema saber diferenciar a ação GET aplicaremos como parametro o ID;
+    public Clube? LeClubePorId(int id)                              //Esse ponto de Interrogação (?)´diz respeito pois o clube pode ser nulo.
+    {
+        return clubes.FirstOrDefault(clube => clube.Id == id);     // para cada elemento da lista clubes, vou verificar se o Id é igual ao Id recebido.
+    }
 
 }
