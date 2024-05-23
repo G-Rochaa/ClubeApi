@@ -8,7 +8,7 @@ namespace ClubesApi.Controllers;
 [Route("[controller]")]
 public class ClubeController : ControllerBase
 {
-    private static int id = 0;                  //Começamos nosso id em zero.
+    private static int id = 1;                  //Começamos nosso id em Um.
     private static List<Clube> clubes = new List<Clube>();      //Criando a lista de clubes 
 
     [HttpPost]                                                  //Post pois adicionaremos um clube
@@ -20,9 +20,9 @@ public class ClubeController : ControllerBase
     }
 
     [HttpGet]
-    public IEnumerable<Clube> LeClubes()                       //Recuperando um IEnumeravel de clubes com todos os clubes cadastrados
+    public IEnumerable<Clube> LeClubes([FromQuery] int skip = 0, [FromQuery] int take = 50)             //Recuperando um IEnumeravel de clubes com todos os clubes cadastrados, e adicionando o conceito de paginação com o método Skip e Take
     {
-        return clubes;
+        return clubes.Skip(skip).Take(take);                                                        
     }
 
     [HttpGet("{id}")]                                                //Para nosso sistema saber diferenciar a ação GET aplicaremos como parametro o ID;

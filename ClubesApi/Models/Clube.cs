@@ -7,13 +7,13 @@ public class Clube
     public int Id { get; set; }     //ID não é required pois o sistema passará ele, não o usuário!
 
     [Required(ErrorMessage = "O nome é obrigatório!")] 
-    public string Nome { get; set; }
+    public string Nome { get; set; } = string.Empty;
     [Required]
     public int Idade { get; set; }
     [Required]
-    public string PresidenteAtual { get; set; }
+    public string PresidenteAtual { get; set; } = string.Empty;
     [Required]
-    public int QntdTitulosNacionais { get; set; }
+    public int QntdTitulosNacionais { get; set; } 
     [Required]
-    public int QntdTitulosInternacionais { get; set; }
+    public int QntdTitulosInternacionais { get; set; } 
 }
